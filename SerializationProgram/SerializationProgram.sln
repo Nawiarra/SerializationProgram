@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationCore", "Serial
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanCore", "HumanCore\HumanCore.csproj", "{84CCBD9C-D41A-43F0-8FED-9D01BAD7D4BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoAvailablePropertiesExceptionCore", "NoAvailablePropertiesExeption\NoAvailablePropertiesExceptionCore.csproj", "{F6017262-B235-44D4-B21D-EE045AD38020}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{84CCBD9C-D41A-43F0-8FED-9D01BAD7D4BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84CCBD9C-D41A-43F0-8FED-9D01BAD7D4BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84CCBD9C-D41A-43F0-8FED-9D01BAD7D4BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6017262-B235-44D4-B21D-EE045AD38020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6017262-B235-44D4-B21D-EE045AD38020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6017262-B235-44D4-B21D-EE045AD38020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6017262-B235-44D4-B21D-EE045AD38020}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

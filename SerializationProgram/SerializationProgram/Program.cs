@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SerializationCore;
+using HumanCore;
+using NoAvailablePropertiesException;
 
 namespace SerializationProgram
 {
@@ -11,6 +13,7 @@ namespace SerializationProgram
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

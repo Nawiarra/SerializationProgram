@@ -50,6 +50,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HumanCore\HumanCore.csproj">
+      <Project>{84ccbd9c-d41a-43f0-8fed-9d01bad7d4ba}</Project>
+      <Name>HumanCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NoAvailablePropertiesExeption\NoAvailablePropertiesExceptionCore.csproj">
+      <Project>{f6017262-b235-44d4-b21d-ee045ad38020}</Project>
+      <Name>NoAvailablePropertiesExceptionCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SerializationCore\SerializationCore.csproj">
       <Project>{0bd76c68-93e6-4157-a965-269099c444a1}</Project>
       <Name>SerializationCore</Name>
