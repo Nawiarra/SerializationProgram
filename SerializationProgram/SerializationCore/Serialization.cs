@@ -8,6 +8,12 @@ using System.Text.Json;
 
 namespace SerializationCore
 {
+    public class MyIgnoreAttribute : System.Attribute
+    {
+        public MyIgnoreAttribute()
+        { 
+        }
+    }
     public class Serialization <T>
     {
         public static void Serialize(T obj, string name)
