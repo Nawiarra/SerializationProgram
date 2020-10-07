@@ -50,8 +50,6 @@ namespace SerializationCore
             serializableObject = temp.ToString();
 
             serializableObject = serializableObject.Replace("\r\n", "");
-            serializableObject = serializableObject.Replace("[", "");
-            serializableObject = serializableObject.Replace("]", "");
 
             System.IO.File.WriteAllText(name, serializableObject);
         }
