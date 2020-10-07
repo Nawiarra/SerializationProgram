@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SerializationCore;
 using HumanCore;
-using NoAvailablePropertiesException;
+
 
 namespace SerializationProgram
 {
@@ -13,7 +13,10 @@ namespace SerializationProgram
     {
         static void Main(string[] args)
         {
-
+            Gamer gamer = new Gamer("aaaa", "bbbb", 12, true);
+            Suicidal suicidal = new Suicidal("cccc", "dddd", 11, 50);
+            Serialization.Serialize(gamer, "gamer.json");
+            Serialization.Serialize(suicidal, "suicidal.json");
         }
     }
 }

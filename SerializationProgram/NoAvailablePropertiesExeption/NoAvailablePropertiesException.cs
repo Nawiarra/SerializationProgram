@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NoAvailablePropertiesException
+namespace NoAvailablePropertiesExceptionCore
 {
     public class NoAvailablePropertiesException : Exception
     {

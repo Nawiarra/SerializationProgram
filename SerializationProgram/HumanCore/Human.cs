@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SerializationCore;
 
 namespace HumanCore
 {
+    public class MyIgnoreAttribute : System.Attribute
+    {
+        public MyIgnoreAttribute()
+        {
+        }
+    }
+    [Serializable]
     public abstract class Human
     {
         [MyIgnoreAttribute]

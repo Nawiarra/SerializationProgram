@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace HumanCore
 {
+    [Serializable]
     public class Gamer : Human
     {
         public Guid Id { get; private set; }

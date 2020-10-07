@@ -47,10 +47,7 @@
     <Compile Include="Suicidal.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SerializationCore\SerializationCore.csproj">
-      <Project>{0bd76c68-93e6-4157-a965-269099c444a1}</Project>
-      <Name>SerializationCore</Name>
-    </ProjectReference>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
