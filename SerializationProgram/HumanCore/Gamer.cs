@@ -18,6 +18,11 @@ namespace HumanCore
             Id = Guid.NewGuid();
             this.IsInGame = isInGame;
         }
+         public Gamer(Guid id, bool isInGame)
+        {
+            Id = id;
+            IsInGame = isInGame;
+        }
         public override string Speak()
         {
             return "Let's play";

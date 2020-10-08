@@ -19,51 +19,44 @@ namespace SerializationCore
         object SerializableObject = new object();
         public static void Serialize(object obj, string name) 
         {
-            var ListOfPropertiesForNonSerialize = PrepareProrertyToNoSerialization(obj);
+            var ListOfPropertiesForNonSerialize = PrepareProrertyToSerialization(obj);
 
             if (ListOfPropertiesForNonSerialize.Count() == obj.GetType().GetProperties().Count())
             {
                  throw new NoAvailablePropertiesException();
             }
 
-            string serializableObject = System.Text.Json.JsonSerializer.Serialize<object>(obj);
+            //  string serializableObject = System.Text.Json.JsonSerializer.Serialize<object>(obj);
+            string serializableObject = "{";
 
-            var temp = new JArray(serializableObject);
-
-            foreach(var item in ListOfPropertiesForNonSerialize)
+            foreach (var item in ListOfPropertiesForNonSerialize)
             {
-                temp.Descendants()
-               .OfType<JProperty>()
-               .Where(attr => attr.Name == item.Name)
-               .ToList()
-               .ForEach(attr => attr.Remove());
-                
+                serializableObject += $"\"{item.Name}\":\"{item.GetValue(obj)}\",\n";
             }
+            serializableObject = serializableObject.Remove(serializableObject.Length - 2);
 
-            serializableObject = temp.ToString();
-
-            serializableObject = serializableObject.Replace("\r\n", "");
+            serializableObject += "}";
 
             System.IO.File.WriteAllText(name, serializableObject);
 
-
         }
 
-        public static List<PropertyInfo> PrepareProrertyToNoSerialization(object obj)
+        public static List<PropertyInfo> PrepareProrertyToSerialization(object obj)
         {
             var objType = obj.GetType();
             var listOfProperties = objType.GetProperties();
-            List<PropertyInfo> PropertiesWithMyIgnoreAttribute = new List<PropertyInfo>();
+
+            List<PropertyInfo> PropertiesWithNoMyIgnoreAttribute = new List<PropertyInfo>();
 
             foreach (PropertyInfo item in listOfProperties)
             {
-                if (item.CustomAttributes.Any(x => x.AttributeType.Name == "MyIgnoreAttribute"))
+                if (!item.CustomAttributes.Any(x => x.AttributeType.Name == "MyIgnoreAttribute"))
                 {
-                    PropertiesWithMyIgnoreAttribute.Add(item);
+                    PropertiesWithNoMyIgnoreAttribute.Add(item);
                 }
             }
 
-            return PropertiesWithMyIgnoreAttribute;
+            return PropertiesWithNoMyIgnoreAttribute;
         }
 
     }
