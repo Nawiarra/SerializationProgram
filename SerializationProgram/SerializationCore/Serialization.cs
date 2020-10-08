@@ -9,33 +9,26 @@ using Newtonsoft.Json.Linq;
 using NoAvailablePropertiesExceptionCore;
 using HumanCore;
 using System.Runtime.Serialization.Json;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
 
 namespace SerializationCore
 {
-    public class Serialization 
+    public class Serialization
     {
-        public static void Serialize(object obj, string name)
+        object SerializableObject = new object();
+        public static void Serialize(object obj, string name) 
         {
             var ListOfPropertiesForNonSerialize = PrepareProrertyToNoSerialization(obj);
 
-            try
+            if (ListOfPropertiesForNonSerialize.Count() == obj.GetType().GetProperties().Count())
             {
-                if (ListOfPropertiesForNonSerialize.Count() == obj.GetType().GetProperties().Count())
-                {
-                    throw new NoAvailablePropertiesException();
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("OOOPS");
-                return;
+                 throw new NoAvailablePropertiesException();
             }
 
-            string serializableObject = JsonSerializer.Serialize<object>(obj);
+            string serializableObject = System.Text.Json.JsonSerializer.Serialize<object>(obj);
 
-            JObject jObject = JObject.Parse(serializableObject);
-
-            var temp = new JArray(jObject);
+            var temp = new JArray(serializableObject);
 
             foreach(var item in ListOfPropertiesForNonSerialize)
             {
@@ -52,6 +45,8 @@ namespace SerializationCore
             serializableObject = serializableObject.Replace("\r\n", "");
 
             System.IO.File.WriteAllText(name, serializableObject);
+
+
         }
 
         public static List<PropertyInfo> PrepareProrertyToNoSerialization(object obj)
@@ -70,6 +65,7 @@ namespace SerializationCore
 
             return PropertiesWithMyIgnoreAttribute;
         }
+
     }
 
 }

@@ -15,8 +15,19 @@ namespace SerializationProgram
         {
             Gamer gamer = new Gamer("aaaa", "bbbb", 12, true);
             Suicidal suicidal = new Suicidal("cccc", "dddd", 11, 50);
+
             Serialization.Serialize(gamer, "gamer.json");
-            Serialization.Serialize(suicidal, "suicidal.json");
+
+            try
+            {
+                Serialization.Serialize(suicidal, "suicidal.json");
+            }     
+            catch(Exception ex)
+            {
+                Console.WriteLine("OOOPS");
+                Console.WriteLine(ex.Message);
+            }
+
         }
     }
 }

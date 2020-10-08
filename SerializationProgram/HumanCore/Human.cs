@@ -13,7 +13,7 @@ namespace HumanCore
         }
     }
     [Serializable]
-    public abstract class Human
+    public abstract class Human 
     {
         [MyIgnoreAttribute]
         public string FirstName { get; private set; }
@@ -45,6 +45,8 @@ namespace HumanCore
         {
             IsAlive = false;
         }
+
+
 
     }
 }
